@@ -1,6 +1,6 @@
 package com.example.bookstudyapplication
 
-import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -49,8 +49,9 @@ class MainActivity : AppCompatActivity() {
 
         nextButton = findViewById(R.id.btn_next)
         nextButton.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size
-            updateQuestion()
+//            currentIndex = (currentIndex + 1) % questionBank.size
+//            updateQuestion()
+            startActivity(Intent(this, TransparentActivity::class.java))
         }
         updateQuestion()
     }
@@ -96,5 +97,9 @@ class MainActivity : AppCompatActivity() {
             }
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        private const val TAG = "MAinActivity"
     }
 }
